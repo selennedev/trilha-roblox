@@ -3,13 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Trilha Roblox Generalista</title>
+<title>Trilha COO · Estúdio 3D Roblox</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: uma trilha vertical de paradas numeradas (a ordem é a informação), com trilha paralela no fim. */
 :root {
   --bg: #EDF1EE;
   --surface: #F8FAF8;
@@ -22,7 +20,7 @@
   --soft: #DCE8E2;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -38,18 +36,6 @@
     color-scheme: dark;
   }
 }
-:root[data-theme="dark"] {
-  --bg: #0D1815;
-  --surface: #14231F;
-  --fg: #E6EEEA;
-  --muted: #94AAA1;
-  --line: #26392F;
-  --accent: #4FD1B0;
-  --accent-ink: #07211A;
-  --blaze: #F2B93B;
-  --soft: #1B2F28;
-  color-scheme: dark;
-}
 * { box-sizing: border-box; }
 body {
   background: var(--bg);
@@ -63,9 +49,6 @@ body {
 .wrap { max-width: 860px; margin-inline: auto; display: flex; flex-direction: column; gap: 40px; }
 h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.12; }
 p { margin: 0; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-
-/* Cabeçalho */
 .head { display: flex; flex-direction: column; gap: 20px; }
 .kicker { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 h1 { font-size: clamp(2.1rem, 7vw, 3.4rem); font-weight: 800; letter-spacing: -.02em; }
@@ -82,17 +65,14 @@ h1 { font-size: clamp(2.1rem, 7vw, 3.4rem); font-weight: 800; letter-spacing: -.
 .bar > b { display: block; height: 100%; width: 0; background: var(--accent); border-radius: 99px; transition: width .35s ease; }
 .split { display: flex; height: 8px; border-radius: 99px; overflow: hidden; gap: 2px; }
 .split b { display: block; }
-.split .t { width: 30%; background: var(--blaze); }
-.split .p { width: 70%; background: var(--accent); }
+.split .t { width: 40%; background: var(--blaze); }
+.split .p { width: 60%; background: var(--accent); }
 .split-legend { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
-.hint { font-size: 14px; color: var(--muted); }
-
-/* Trilha */
 .trail { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .stop { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 14px; padding-bottom: 18px; }
 .stop::before { content: ""; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 11px); }
 .stop:last-child::before { display: none; }
-.node { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 2px solid var(--line); font-family: var(--font-mono); font-weight: 600; font-size: 14px; color: var(--muted); z-index: 1; font-variant-numeric: tabular-nums; }
+.node { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); border: 2px solid var(--line); font-family: var(--font-mono); font-weight: 600; font-size: 14px; color: var(--muted); z-index: 1; }
 .stop.next .node { border-color: var(--blaze); color: var(--blaze); box-shadow: 0 0 0 4px color-mix(in srgb, var(--blaze) 22%, transparent); }
 .stop.done .node { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 .stop.done::before { background: var(--accent); }
@@ -102,7 +82,7 @@ summary { list-style: none; cursor: pointer; padding: 16px 18px; display: flex; 
 summary::-webkit-details-marker { display: none; }
 .row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 h2 { font-size: 1.4rem; font-weight: 800; letter-spacing: -.01em; }
-.meta { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.meta { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
 .pri { display: inline-flex; gap: 3px; align-items: center; }
 .pri i { width: 8px; height: 8px; border-radius: 2px; background: var(--line); }
 .pri i.on { background: var(--blaze); }
@@ -114,178 +94,108 @@ details[open] .chev { transform: rotate(90deg); }
 .body { padding: 4px 18px 20px; display: flex; flex-direction: column; gap: 20px; border-top: 1px solid var(--line); padding-top: 18px; }
 .mod { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .mod h3 { font-size: 1rem; font-weight: 600; font-family: var(--font-body); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; background: var(--blaze); color: var(--bg); padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; background: var(--blaze); color: #000; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
 .items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 6px; }
 .items.wide { grid-template-columns: 1fr; }
-.items label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; font-size: 14.5px; line-height: 1.35; min-width: 0; overflow-wrap: anywhere; background: var(--bg); }
+.items label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; font-size: 14.5px; line-height: 1.35; background: var(--bg); }
 .items label:hover { border-color: var(--accent); }
 .items input { margin: 2px 0 0; width: 16px; height: 16px; flex: none; accent-color: var(--accent); }
-.items input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--muted) 50%, transparent); }
+.items input:checked + span { color: var(--muted); text-decoration: line-through; opacity: 0.7; }
 .mod.project .items label { border-style: dashed; }
 .flow { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-family: var(--font-mono); font-size: 12px; }
 .flow span { background: var(--soft); padding: 4px 8px; border-radius: 4px; }
 .flow i { font-style: normal; color: var(--muted); }
 .note { font-size: 14.5px; color: var(--muted); border-left: 3px solid var(--blaze); padding-left: 12px; }
-
-/* Trilha paralela */
 .parallel { display: flex; flex-direction: column; gap: 16px; }
-.parallel h2 { font-size: 1.6rem; }
 .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; align-items: start; }
-.pcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-.pcard .items { grid-template-columns: 1fr; }
-.pcard h3 { font-size: 1.15rem; }
-
-@media (max-width: 640px) {
-  .panel { grid-template-columns: 1fr; }
-  .stop { grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; }
-  .node { width: 34px; height: 34px; font-size: 12px; }
-  .stop::before { left: 16px; top: 34px; }
-  h2 { font-size: 1.2rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .bar > b, .mini > b, .chev { transition: none; }
-}
+.pcard { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 </style>
-
 </head>
 <body>
 <main class="wrap">
   <header class="head">
-    <div class="kicker">Guia de estudos · Roblox</div>
-    <h1>Trilha Roblox Generalista</h1>
-    <p class="lead">Onze paradas, na ordem recomendada, para levar uma ideia até um jogo publicado. A meta é entender como todas as peças conversam, não decorar ferramentas.</p>
-    <div class="goal" aria-label="Caminho da ideia até a atualização" id="goal"></div>
+    <div class="kicker">Guia de Estudos · Operações & Liderança</div>
+    <h1>Trilha de Formação: COO de Estúdio 3D Roblox</h1>
+    <p class="lead">OITO etapas práticas para estruturar a gestão diária, otimização de pipeline 3D, controle de métricas e suporte direto ao CEO no ecossistema Roblox.</p>
+    <div class="goal" id="goal"></div>
     <div class="panel">
       <div>
-        <span class="label">Progresso geral</span>
+        <span class="label">Progresso Geral da Formação</span>
         <div class="big"><span id="pct">0%</span><small id="count">0 de 0 itens</small></div>
-        <div class="bar" role="progressbar" aria-label="Progresso geral" aria-valuemin="0" aria-valuemax="100" id="pbar"><b id="pfill"></b></div>
+        <div class="bar" id="pbar"><b id="pfill"></b></div>
       </div>
       <div>
-        <span class="label">Como dividir o tempo</span>
-        <div class="split" aria-hidden="true"><b class="t"></b><b class="p"></b></div>
-        <div class="split-legend"><span>30% teoria</span><span>70% prática</span></div>
-        <p class="hint">Cada bloco termina em um projeto. Marque os itens conforme avança.</p>
+        <span class="label">Proporção Recomendada</span>
+        <div class="split"><b class="t"></b><b class="p"></b></div>
+        <div class="split-legend"><span>40% Auto-Aplicação</span><span>60% Gestão de Equipe</span></div>
+        <p class="hint">Marque as competências à medida que aplica no estúdio.</p>
       </div>
     </div>
   </header>
 
   <ol class="trail" id="trail"></ol>
 
-  <section class="parallel" aria-labelledby="ptitle">
-    <h2 id="ptitle">Em paralelo, o tempo todo</h2>
-    <p class="note">Suas áreas fortes continuam no currículo. Aprofunde cada uma dentro de projetos reais, enquanto percorre a trilha.</p>
+  <section class="parallel">
+    <h2>Competências Transversais do COO</h2>
+    <p class="note">Soft skills e habilidades técnicas contínuas que devem ser praticadas semanalmente em paralelo aos módulos.</p>
     <div class="pgrid" id="parallel"></div>
   </section>
 </main>
 
 <script>
 (function () {
-  var GOAL = ["conceito","GDD","protótipo","arte","programação","mapa","UI","animação","VFX","áudio","testes","economia","monetização","publicação","análise","atualização"];
+  var GOAL = ["alinhamento","capacidade","pipeline","QA/SOP","KPIs","rotinas","liderança","escalabilidade"];
 
   var STOPS = [
-    { id: "gd", t: "Game Design", p: 5, obj: "Aprender a projetar um jogo antes de sair construindo coisas aleatórias.",
+    { id: "g1", t: "1. Gestão Diária de Produção e Pipeline 3D", p: 5, obj: "Controlar o fluxo de assets do conceito à engine sem gargalos operacionais.",
       mods: [
-        { t: "1.1 Fundamentos", items: ["O que é Game Design","Gêneros","Core gameplay","Core loop","Game loop","Mecânica","Sistema","Regra","Objetivo","Recompensa","Progressão","Feedback","Pacing"] },
-        { t: "1.2 Estrutura de um jogo", wide: true, items: ["Quem é o jogador?","O que ele faz?","Por que ele continua fazendo?","O que ele ganha?","O que desbloqueia?","O que muda depois?"] },
-        { t: "1.3 GDD", items: ["Visão do jogo","Público","Gênero","Referências","Core loop","Sistemas","Mecânicas","Progressão","Economia","Monetização","Mapa","UI","Requisitos técnicos"] },
-        { t: "Projeto", project: true, wide: true, items: ["Criar o GDD de um jogo Roblox pequeno"] }
+        { t: "1.1 Entendimento do Pipeline Roblox 3D", items: ["Low Poly / Mid Poly e limites da engine","Processos de UV Unwrapping e Texel Density","Texturização (Hand-painted vs PBR / SurfaceAppearance)","Rigging, Skinning e Cage Mesh (Layered Clothing)","Formatos e rotas de exportação (.fbx, .gltf)"] },
+        { t: "1.2 Mapeamento de Capacidade & Prazos", items: ["Cálculo de Lead Time (Pedido ao Upload)","Cálculo de Cycle Time (Tempo de modelagem ativa)","Estimativa realista baseada em histórico prévio","Criação de SLAs internos para entregas e revisões"] },
+        { t: "1.3 Gestão Visual de Tarefas", wide: true, items: ["Configuração de Kanban no ClickUp/Notion/Trello","Status: Backlog, Modeling, Texturing, QA, Exported","Implementação de Limite WIP (Work In Progress)"] },
+        { t: "Projeto Prático", project: true, wide: true, items: ["Mapear o pipeline completo do estúdio e identificar o principal gargalo atual."] }
       ] },
-    { id: "lua", t: "Programação Roblox + Luau", p: 5, obj: "Provavelmente o seu maior bloco.",
+    { id: "g2", t: "2. Otimização de Processos e Padrões Técnicos", p: 5, obj: "Garantir padrão máximo de qualidade e reprovação zero na importação.",
       mods: [
-        { t: "2.1 Fundamentos de programação", items: ["Variáveis","Tipos","Operadores","Condicionais","Loops","Funções","Escopo","Tabelas","Arrays e dicionários","Eventos","Callbacks"] },
-        { t: "2.2 Luau", items: ["Sintaxe","Módulos","require","ModuleScripts","Metatables","OOP","Type checking","Organização de código"] },
-        { t: "2.3 Roblox API", items: ["Instances","Services","Properties","Attributes","Events","CollectionService","Tags","TweenService","RunService","UserInputService","ContextActionService"] },
-        { t: "2.4 Multiplayer", flow: ["CLIENT","RemoteEvent","SERVER","VALIDAÇÃO","GAME STATE"], items: ["Client","Server","RemoteEvent","RemoteFunction","Replicação","Autoridade do servidor","Validação","Exploits"] },
-        { t: "2.5 Dados", items: ["DataStore","Profile/Data patterns","Salvamento","Carregamento","Autosave","Tratamento de erros","Versionamento"] },
-        { t: "2.6 Arquitetura", items: ["Organização de pastas","Módulos","Sistemas","Serviços","Componentes","Comunicação entre sistemas","Código escalável"] },
-        { t: "Projeto", project: true, wide: true, items: ["Sistema de moedas + coleta + inventário + salvamento + loja"] }
+        { t: "2.1 Controle de Qualidade (QA Roblox)", items: ["Checklist de validação de malha (Triângulos e Normals)","Padronização de mapas de textura (1024x1024)","Regras de validação UGC (Bounding boxes e Attachments)","Collision Fidelity e otimização de performance"] },
+        { t: "2.2 Procedimentos Operacionais Padrão (SOPs)", items: ["Criação de SOP para organização de pastas e arquivos","Nomenclatura oficial de assets e versionamento","Checklist pré-upload para o Roblox Studio"] },
+        { t: "2.3 Gestão de Retrabalho", wide: true, items: ["Análise de Causa Raiz para reprovações de assets","Matriz de correção rápida de erros frequentes"] },
+        { t: "Projeto Prático", project: true, wide: true, items: ["Escrever o SOP oficial de Exportação e QA de Assets Roblox do estúdio."] }
       ] },
-    { id: "lvl", t: "Level Design", p: 4, obj: "Aqui você transforma sua experiência de 3D em gameplay.",
+    { id: "g3", t: "3. Execução da Estratégia e Mapeamento de Recursos", p: 4, obj: "Traduzir a visão comercial e criativa do CEO em capacidade real de entrega.",
       mods: [
-        { t: "Estudar", items: ["Composição espacial","Escala","Navegação","Landmarks","Zonas","Fluxo","Pacing","Exploração","Onboarding","Checkpoints","Spawn","Dificuldade","Environmental storytelling"] },
-        { t: "Exercício", wide: true, note: "Se a resposta for não, temos trabalho.", items: ["Pegue um mapa que você já modelou e apague as texturas. O jogador ainda sabe para onde deve ir?"] },
-        { t: "Projeto: mapa jogável contendo", project: true, items: ["Spawn","Área inicial","Tutorial","Área principal","Zona secundária","Recompensa","Caminho de progressão"] }
+        { t: "3.1 Planejamento de Capacidade (Capacity Planning)", items: ["Cálculo de quantos artistas são necessários por demanda","Estruturação de alocação de equipe interna vs freelancers","Dimensionamento para picos de demandas de projetos"] },
+        { t: "3.2 Métricas e Indicadores Operacionais (KPIs)", items: ["Taxa de Retrabalho/Refeito (%)","Tempo Médio por Asset por Categoria","Taxa de Cumprimento de Prazos (On-Time Delivery)","Custo unitário do asset (Asset Unit Cost)"] },
+        { t: "Projeto Prático", project: true, wide: true, items: ["Montar o Painel Semanal de KPIs Operacionais do estúdio."] }
       ] },
-    { id: "prod", t: "Produção", p: 5, obj: "Especialmente importante se você quiser trabalhar com equipe.",
+    { id: "g4", t: "4. O COO como Braço Direito do CEO e Liderança", p: 4, obj: "Garantir a sinergia perfeita entre o lado estratégico e a operação.",
       mods: [
-        { t: "Estudar", items: ["Planejamento","Backlog","Roadmap","Milestones","Sprint","Tarefas","Prioridades","Estimativas","Dependências","Documentação","Versionamento","Pipeline","Gerenciamento de equipe"] },
-        { t: "Transformar uma frase em trabalho", flow: ["EPIC","SYSTEM","FEATURE","TASK","SUBTASK"], note: "De \"Precisamos fazer um Pet Simulator\" até a menor subtarefa.", wide: true, items: ["Quebrar \"Precisamos fazer um Pet Simulator\" em epic, sistemas, features, tasks e subtasks"] }
-      ] },
-    { id: "qa", t: "QA + Debug", p: 5, obj: "Este bloco vai elevar muito a sua capacidade como desenvolvedora.",
-      mods: [
-        { t: "Aprender a testar", wide: true, items: ["Funcionalidade: funciona?","Edge cases: o que acontece se o jogador fizer algo que eu não esperava?","Multiplayer: dois jogadores fazem isso ao mesmo tempo. E agora?","Segurança: um exploit consegue manipular isso?","Performance: o jogo continua funcionando em dispositivos fracos?","UX: o jogador entende o que está acontecendo?"] },
-        { t: "Projeto: checklist de QA", project: true, items: ["Gameplay","UI","Mobile","PC","Console","Multiplayer","DataStore","Economia","Exploits","Performance","Áudio","VFX","Animação"] }
-      ] },
-    { id: "eco", t: "Economia + Monetização", p: 4, obj: "Transformar gameplay em uma economia sustentável.",
-      mods: [
-        { t: "Economia", items: ["Moedas","Recursos","Faucets","Sinks","Inflação","Raridade","Progressão","Preços","Recompensas","Grind","Balanceamento"] },
-        { t: "Monetização", items: ["Game Passes","Developer Products","Produtos consumíveis","Cosméticos","Boosts","Conveniência","Lojas","Bundles","Eventos"] },
-        { t: "Projeto: economia completa", project: true, wide: true, flow: ["JOGADOR","GANHA MOEDA","COMPRA ITEM","FICA MAIS FORTE","ACESSA NOVA ÁREA","GANHA MAIS MOEDA"],
-          note: "Depois de montar o ciclo, analise onde está o limite.",
-          items: ["Criar uma economia completa seguindo esse ciclo","Onde está o limite para não virar uma máquina caça-níquel com skin de bichinho fofo?"] }
-      ] },
-    { id: "anim", t: "Animação", p: 3, obj: "Dar vida a personagens, ferramentas e NPCs.",
-      mods: [
-        { t: "4.1 Princípios", items: ["Keyframes","Poses","Timing","Spacing","Anticipation","Follow through","Squash & stretch","Exagero","Looping"] },
-        { t: "4.2 Roblox", items: ["Rigs","R6","R15","Animator","AnimationTrack","Prioridades","Blend","Animações de ferramentas","NPCs"] },
-        { t: "Projeto: conjunto de animações", project: true, items: ["Idle","Walk","Run","Jump","Attack","Interaction","Emote"] }
-      ] },
-    { id: "vfx", t: "VFX", p: 3, obj: "Dar peso e clareza a cada ação do jogador.",
-      mods: [
-        { t: "Estudar", flow: ["Antecipação","ação","impacto","dissipação"], items: ["ParticleEmitter","Beam","Trail","Attachment","Tween","Iluminação","Transparência","Cor","Escala","Timing","Impacto","Magia","Habilidades"] },
-        { t: "Projeto: pacote de VFX", project: true, items: ["Coleta","Moeda","Level up","Ataque","Dano","Explosão","Habilidade especial"] }
-      ] },
-    { id: "ana", t: "Analytics", p: 3, obj: "Medir o jogo para decidir com dados.",
-      mods: [
-        { t: "Aprender a medir", items: ["DAU","MAU","Retenção","Sessão","Duração da sessão","Conversão","Abandono","Progressão","Compras","Funil","Comportamento"] },
-        { t: "Mudança de pergunta", wide: true, note: "Isso muda completamente a tomada de decisão.", items: ["Trocar \"eu acho que os jogadores não gostaram\" por \"62% abandonam durante o tutorial\""] }
-      ] },
-    { id: "aud", t: "Áudio", p: 2, obj: "Você não precisa virar compositora agora. Precisa pensar como sound designer.",
-      mods: [
-        { t: "Estudar", items: ["SFX","Música","Ambientação","UI sounds","Feedback","Loops","Volume","Mixagem","Spatial audio"] },
-        { t: "Projeto: áudio de uma pequena área", project: true, items: ["Ambiente","UI","Interação","Recompensa","Erro","Habilidade"] }
-      ] },
-    { id: "fin", t: "Projeto completo", goal: true, obj: "Em vez de exercícios desconectados, um jogo completo. Exemplo: Pet Simulator.",
-      mods: [
-        { t: "Você será responsável por", project: true, wide: true, items: ["Game Design","GDD","Level Design","3D","Texturas","UI","Programação","Sistema de pets","Inventário","Economia","Animações","VFX","Áudio","DataStore","Multiplayer","QA","Monetização","Analytics","Marketing","Publicação"], numbered: true }
+        { t: "4.1 Sincronização CEO-COO", items: ["Ritual de reporte operacional (Reunião semanal rápida)","Transformar escopos do CEO em roadmaps executáveis","Filtro de viabilidade técnica e de prazos para novos contratos"] },
+        { t: "4.2 Gestão de Pessoas & Cultura", items: ["Resolução de conflitos entre modeladores, scripters e clientes","Criação de matriz de feedback individual (1-on-1s)","Planos de contingência para atrasos ou ausências na equipe"] },
+        { t: "Projeto Prático", project: true, wide: true, items: ["Estruturar o modelo de relatório de alinhamento operacional para o CEO."] }
       ] }
   ];
 
   var PARALLEL = [
-    { id: "p3d", t: "3D Art", items: ["Otimização","Topology","LOD","Modular assets","Performance","Roblox constraints","Asset pipeline","Technical art"] },
-    { id: "ptex", t: "Texturização", items: ["PBR","Baking","Trim sheets","Atlas","Texel density","Otimização","Materiais estilizados","Consistência visual"] },
-    { id: "pui", t: "UI/UX", items: ["UX de jogos","HUD","Menus","Inventário","Shop","Onboarding","Feedback","Acessibilidade","Mobile UX","UI animation"] }
+    { id: "p1", t: "Comunicação Operacional", items: ["Feedbacks objetivos sem ambiguidades","Documentação clara e acessível","Alinhamento constante de expectativas"] },
+    { id: "p2", t: "Ferramentas de Gestão", items: ["Domínio de ClickUp / Notion / Trello","Uso de planilhas para cálculo de capacidade","Automação de rotinas simples"] },
+    { id: "p3", t: "Resolução de Problemas", items: ["Análise fria de gargalos operacionais","Planos de contingência rápidos","Gestão do estresse sob prazos curtos"] }
   ];
 
   function itemHTML(id, text) {
     return '<li><label><input type="checkbox" data-id="' + id + '"><span>' + text + '</span></label></li>';
   }
-  function flowHTML(arr) {
-    return '<div class="flow" aria-label="Fluxo">' + arr.map(function (x) { return '<span>' + x + '</span>'; }).join('<i>→</i>') + '</div>';
-  }
-
-  var goalEl = document.getElementById('goal');
-  goalEl.innerHTML = GOAL.map(function (g) { return '<span>' + g + '</span>'; }).join('<i>→</i>');
 
   var trail = document.getElementById('trail');
   trail.innerHTML = STOPS.map(function (s, si) {
     var n = si + 1;
-    var pri = s.p ? '<span class="pri" role="img" aria-label="Prioridade ' + s.p + ' de 5">' +
-      [1,2,3,4,5].map(function (k) { return '<i class="' + (k <= s.p ? 'on' : '') + '"></i>'; }).join('') + '</span>' : '<span>Meta final</span>';
+    var pri = '<span class="pri" role="img">' + [1,2,3,4,5].map(function (k) { return '<i class="' + (k <= s.p ? 'on' : '') + '"></i>'; }).join('') + '</span>';
     var mods = s.mods.map(function (m, mi) {
-      var items = m.items.map(function (it, ii) {
-        var label = m.numbered ? (ii + 1) + '. ' + it : it;
-        return itemHTML(s.id + '.' + mi + '.' + ii, label);
-      }).join('');
-      return '<div class="mod' + (m.project ? ' project' : '') + '"><h3>' + (m.project ? '<span class="tag">Entrega</span>' : '') + m.t + '</h3>' +
-        (m.flow ? flowHTML(m.flow) : '') +
-        (m.note ? '<p class="note">' + m.note + '</p>' : '') +
-        '<ul class="items' + (m.wide ? ' wide' : '') + '">' + items + '</ul></div>';
+      var items = m.items.map(function (it, ii) { return itemHTML(s.id + '.' + mi + '.' + ii, it); }).join('');
+      return '<div class="mod' + (m.project ? ' project' : '') + '"><h3>' + (m.project ? '<span class="tag">Entrega</span>' : '') + m.t + '</h3><ul class="items' + (m.wide ? ' wide' : '') + '">' + items + '</ul></div>';
     }).join('');
-    return '<li class="stop" data-stop="' + s.id + '"><div class="node" aria-hidden="true">' + (n < 10 ? '0' + n : n) + '</div>' +
+    return '<li class="stop" data-stop="' + s.id + '"><div class="node">' + (n < 10 ? '0' + n : n) + '</div>' +
       '<details class="card"' + (si === 0 ? ' open' : '') + '><summary><div class="row"><h2>' + s.t + '</h2><div class="meta">' + pri +
-      '<span class="cnt">0/0</span><span class="chev" aria-hidden="true">›</span></div></div><p class="obj">' + s.obj + '</p><div class="mini"><b></b></div></summary>' +
+      '<span class="cnt">0/0</span><span class="chev">›</span></div></div><p class="obj">' + s.obj + '</p><div class="mini"><b></b></div></summary>' +
       '<div class="body">' + mods + '</div></details></li>';
   }).join('');
 
@@ -294,12 +204,9 @@ details[open] .chev { transform: rotate(90deg); }
       p.items.map(function (it, ii) { return itemHTML(p.id + '.' + ii, it); }).join('') + '</ul></div>';
   }).join('');
 
-  /* Estado e persistência */
-  var LS = 'trilha-roblox-v1';
+  var LS = 'trilha-coo-roblox-v1';
   var done = {};
-  var dirty = false;
   try { done = JSON.parse(localStorage.getItem(LS) || '{}') || {}; } catch (e) { done = {}; }
-
   var boxes = Array.prototype.slice.call(document.querySelectorAll('input[data-id]'));
 
   function apply() {
@@ -314,7 +221,6 @@ details[open] .chev { transform: rotate(90deg); }
     document.getElementById('pct').textContent = pct + '%';
     document.getElementById('count').textContent = ok + ' de ' + total + ' itens';
     document.getElementById('pfill').style.width = pct + '%';
-    document.getElementById('pbar').setAttribute('aria-valuenow', pct);
 
     var nextSet = false;
     Array.prototype.forEach.call(document.querySelectorAll('[data-stop]'), function (el) {
@@ -333,55 +239,17 @@ details[open] .chev { transform: rotate(90deg); }
     });
   }
 
-  var ref = null, timer = null, writing = Promise.resolve();
-  function persist() {
-    try { localStorage.setItem(LS, JSON.stringify(done)); } catch (e) {}
-    if (!ref) return;
-    clearTimeout(timer);
-    timer = setTimeout(function () {
-      writing = writing.then(function () {
-        return ref.set({ done: done, updatedAt: Date.now() });
-      }).catch(function () {});
-    }, 700);
-  }
-
   document.addEventListener('change', function (e) {
     var t = e.target;
     if (!t || !t.matches || !t.matches('input[data-id]')) return;
     var id = t.getAttribute('data-id');
     if (t.checked) done[id] = true; else delete done[id];
-    dirty = true;
+    try { localStorage.setItem(LS, JSON.stringify(done)); } catch (e) {}
     update();
-    persist();
   });
 
   apply();
-
-  (async function () {
-    try {
-      var c = window.claude;
-      if (!c || !c.use) return;
-      var user = await c.use('user');
-      var db = await c.use('db');
-      if (!user || !db) return;
-      var id = await user.id();
-      if (!id) return;
-      ref = db.doc('data/users/' + id + '/progress');
-      var snap = await ref.get();
-      if (snap.exists) {
-        var d = snap.data();
-        if (d && d.done && !dirty) {
-          done = d.done;
-          try { localStorage.setItem(LS, JSON.stringify(done)); } catch (e) {}
-          apply();
-        }
-      } else if (Object.keys(done).length) {
-        persist();
-      }
-    } catch (e) {}
-  })();
 })();
 </script>
-
 </body>
 </html>
